@@ -12,7 +12,11 @@
     "cors": "^2.8.5",
     "axios": "^1.6.0",
     "cheerio": "^1.0.0-rc.12",
-    "fuse.js": "^7.0.0"
+    "fuse.js": "^7.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "express-session": "^1.17.3"
   },
   "devDependencies": {
     "nodemon": "^3.0.0"

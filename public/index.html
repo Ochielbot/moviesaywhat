@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal-styles.css">
 </head>
 <body>
     <div class="background-grid"></div>
@@ -20,10 +21,11 @@
                 <div class="logo-glow"></div>
             </div>
             <div class="nav-items">
-                <a href="#" class="nav-item">Search</a>
-                <a href="#" class="nav-item">Library</a>
-                <a href="#" class="nav-item">API</a>
-                <a href="#" class="nav-item">Login</a>
+                <a href="#" class="nav-item" id="searchNav">Search</a>
+                <a href="#" class="nav-item" id="pricingNav">Pricing</a>
+                <a href="#" class="nav-item" id="profileNav" style="display: none;">Profile</a>
+                <a href="#" class="nav-item" id="loginNav">Login</a>
+                <a href="#" class="nav-item" id="logoutNav" style="display: none;">Logout</a>
             </div>
         </div>
     </nav>
@@ -69,6 +71,101 @@
         </div>
         
         <div id="results" class="results-grid"></div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required />
+                <input type="password" id="loginPassword" placeholder="Password" required />
+                <button type="submit">Login</button>
+            </form>
+            <p class="modal-switch">Don't have an account? <a href="#" id="showRegister">Register</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <input type="text" id="registerName" placeholder="Name" required />
+                <input type="email" id="registerEmail" placeholder="Email" required />
+                <input type="password" id="registerPassword" placeholder="Password" required />
+                <button type="submit">Register</button>
+            </form>
+            <p class="modal-switch">Already have an account? <a href="#" id="showLogin">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Pricing Page -->
+    <div id="pricingPage" class="pricing-page" style="display: none;">
+        <div class="pricing-header">
+            <h1>Choose Your Plan</h1>
+            <p>Unlock unlimited searches and premium features</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Free</h3>
+                <div class="price">$0<span>/month</span></div>
+                <ul class="features">
+                    <li>✓ 5 searches/month</li>
+                    <li>✓ Standard video playback</li>
+                    <li>✗ No downloads</li>
+                </ul>
+                <button class="plan-btn current-plan">Current Plan</button>
+            </div>
+            <div class="pricing-card featured">
+                <div class="badge">POPULAR</div>
+                <h3>Basic</h3>
+                <div class="price">$5<span>/month</span></div>
+                <ul class="features">
+                    <li>✓ 50 searches/month</li>
+                    <li>✓ Standard video playback</li>
+                    <li>✗ No downloads</li>
+                </ul>
+                <button class="plan-btn" data-plan="basic">Upgrade Now</button>
+            </div>
+            <div class="pricing-card">
+                <h3>Pro</h3>
+                <div class="price">$15<span>/month</span></div>
+                <ul class="features">
+                    <li>✓ 200 searches/month</li>
+                    <li>✓ Downloadable videos</li>
+                    <li>✓ Priority support</li>
+                </ul>
+                <button class="plan-btn" data-plan="pro">Upgrade Now</button>
+            </div>
+            <div class="pricing-card">
+                <h3>Unlimited</h3>
+                <div class="price">$30<span>/month</span></div>
+                <ul class="features">
+                    <li>✓ Unlimited searches</li>
+                    <li>✓ Downloadable videos</li>
+                    <li>✓ Priority support</li>
+                    <li>✓ API access</li>
+                </ul>
+                <button class="plan-btn" data-plan="unlimited">Upgrade Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Page -->
+    <div id="profilePage" class="profile-page" style="display: none;">
+        <div class="profile-container">
+            <h1>Your Profile</h1>
+            <div class="profile-info">
+                <p><strong>Name:</strong> <span id="profileName"></span></p>
+                <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+                <p><strong>Plan:</strong> <span id="profilePlan"></span></p>
+                <p><strong>Searches Used:</strong> <span id="profileSearches"></span></p>
+            </div>
+            <button id="backToSearch" class="btn-back">Back to Search</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
