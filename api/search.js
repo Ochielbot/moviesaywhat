@@ -1,18 +1,16 @@
-const express = require('express');
-const cors = require('cors');
-const path = require('path');
-const DialogueSearcher = require('./src/DialogueSearcher');
-
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(cors());
-app.use(express.json());
-app.use(express.static('public'));
-
+const DialogueSearcher = require('../src/DialogueSearcher');
 const searcher = new DialogueSearcher();
 
-app.get('/api/search', async (req, res) => {
+module.exports = async (req, res) => {
+  // Allow CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   try {
     const { query } = req.query;
     console.log('Search request received:', query);
@@ -29,12 +27,4 @@ app.get('/api/search', async (req, res) => {
     console.error('Search error:', error);
     res.status(500).json({ error: 'Search failed', details: error.message });
   }
-});
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+};
