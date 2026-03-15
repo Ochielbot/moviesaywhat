@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieSayWhat - Pop Culture Intelligence Terminal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-grid"></div>
+    <div class="floating-particles"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">MOVIESAYWHAT</span>
+                <div class="logo-glow"></div>
+            </div>
+            <div class="nav-items">
+                <a href="#" class="nav-item">Search</a>
+                <a href="#" class="nav-item">Library</a>
+                <a href="#" class="nav-item">API</a>
+                <a href="#" class="nav-item">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <h1 class="hero-title">
+                <span class="title-line">Search Pop Culture</span>
+                <span class="title-line">Like a Supercomputer</span>
+            </h1>
+            <p class="hero-subtitle">Find the exact moment any dialogue occurs in movies and TV shows</p>
+        </header>
+
+        <div class="search-console">
+            <div class="console-frame">
+                <div class="console-header">
+                    <div class="console-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="console-title">DIALOGUE_SEARCH.EXE</span>
+                </div>
+                <div class="search-container">
+                    <div class="search-box">
+                        <div class="search-icon">▶</div>
+                        <input type="text" id="searchInput" placeholder="Find scenes by dialogue... e.g. 'Are you serious?'" />
+                        <button id="searchBtn">
+                            <span class="btn-text">SEARCH</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                    </div>
+                    <div class="search-suggestions" id="suggestions"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="loading-scanner">
+                <div class="scanner-line"></div>
+                <div class="scanner-text">SCANNING NEURAL NETWORKS...</div>
+            </div>
+        </div>
+        
+        <div id="results" class="results-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
